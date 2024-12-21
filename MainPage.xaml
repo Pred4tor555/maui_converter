@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:MauiCurrencyConverter="clr-namespace:MauiCurrencyConverter"
+             x:Class="MauiCurrencyConverter.MainPage"
+             x:DataType="MauiCurrencyConverter:ConverterViewModel">
+
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto"
+          ColumnDefinitions="*, Auto">
+        
+        <!-- Вывод выбранной даты -->
+        <Label Grid.Row="0" Margin="10" FontSize="30" Text="{Binding SelectedDate, StringFormat='Курс на {0:yyyy/MM/dd}'}"></Label>
+        
+        <!-- Ввод суммы в исходной валюте -->
+        <Entry Grid.Row="1" Margin="3"  Text="{Binding AmountFrom}" Placeholder="Введите сумму" />
+
+        <!-- Выбор исходной валюты -->
+        <Picker Grid.Row="1" Grid.Column="1" Margin="3" ItemDisplayBinding="{Binding CharCode}" HorizontalTextAlignment="Center" BackgroundColor="Purple" ItemsSource="{Binding Currencies}" SelectedItem="{Binding SelectedFromCurrency}" />
+
+        <!-- Ввод суммы в целевой валюте -->
+        <Entry Grid.Row="2" Margin="3" Text="{Binding AmountTo}" Placeholder="Результат" />
+
+        <!-- Выбор целевой валюты -->
+        <Picker Grid.Row="2" Grid.Column="1" Margin="3" ItemDisplayBinding="{Binding CharCode}" HorizontalTextAlignment="Center" BackgroundColor="Purple" ItemsSource="{Binding Currencies}" SelectedItem="{Binding SelectedToCurrency}" />
+        
+        <!-- Выбор даты -->
+        <DatePicker Grid.Row="3" Grid.Column="1" Margin="25" HorizontalOptions="End" Date="{Binding SelectedDate}"></DatePicker>
+    </Grid>
+
+</ContentPage>
