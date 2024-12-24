@@ -190,7 +190,7 @@ namespace MauiCurrencyConverter
                 _isUpdating = false;
             }
         }
-
+ 
         public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
